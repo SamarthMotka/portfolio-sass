@@ -1,0 +1,106 @@
+@import 'config';
+
+.projects{
+    padding-bottom: 2rem;
+
+    &__bio-image {
+        height: 30vh;
+        width: 100%;
+        background: 
+            linear-gradient(
+                to right,
+                rgba($primary-color,0.9),
+                rgba($primary-color,0.3)
+        ), 
+        url('../345674142_186097317258986_8739908639027495732_n.jpg') center top;
+        background-size: cover;
+        background-position: center 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+    
+        .text-secondary{
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    
+    &__item{
+        width: 60vw;
+        margin: 2rem auto 0 auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 2rem;
+
+
+    }
+
+    &__items{
+        position: relative;
+        border-bottom: 5px solid $primary-color;
+        overflow: hidden;
+        cursor: pointer;
+
+        img{
+            width:100% ;
+        }
+
+        &::after{
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;height: 100%;
+            width: 100%;
+            background: $primary-color;
+            opacity: 0;
+            @include transition-ease;
+
+        }
+
+        &:hover{
+            &::after{
+                top: 0;
+                opacity: 0.8;
+
+            }
+            .projects__btn{
+                opacity: 1;
+            }
+        }
+    }
+
+    &__btns{
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        align-items: center;
+        text-align: center;
+
+    }
+    &__btn{
+        opacity: 0;
+        color: set-text-color($primary-color);
+        @include transition-ease;
+
+        &:hover{
+            color: set-text-color(set-text-color($primary-color)); 
+        }
+
+    }
+    .social-icons{
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer{
+        transform: rotate(90deg)
+        translate(-3rem,-5rem);
+    }
+}
+
